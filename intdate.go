@@ -111,3 +111,10 @@ func (i IntDate) Year() int {
 	currentYear, _, _ := date.Date()
 	return currentYear
 }
+
+//Next Return next days.
+func (i IntDate) Next(day int) int {
+	date, _ := time.Parse(INPUTDATEFORMAT, strconv.Itoa(int(i)))
+	result, _ := strconv.ParseInt(date.AddDate(0, 0, day).Format(INPUTDATEFORMAT), 10, 64)
+	return int(result)
+}
